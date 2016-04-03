@@ -1,0 +1,8 @@
+C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\TimerEvents\SortString\bin\Debug\SortString.exe.config
+C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\TimerEvents\SortString\bin\Debug\SortString.exe
+C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\TimerEvents\SortString\bin\Debug\SortString.pdb
+C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\TimerEvents\SortString\obj\Debug\SortString.exe
+C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\TimerEvents\SortString\obj\Debug\SortString.pdb
+C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\Basics\SortString\bin\Debug\SortString.exe.config
+C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\Basics\SortString\obj\Debug\SortString.exe
+C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\Basics\SortString\obj\Debug\SortString.pdb
