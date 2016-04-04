@@ -54,6 +54,14 @@ namespace PhoneBook
 
     public class PhoneDirectory : List<Person>
     {
-     
+      List<Person> persons = new List<Person>();
+            int sizeOfList = persons.Count
+;
+            while (sizeOfList <= 50)
+            {
+                persons.Add(new Person() { });
+                sizeOfList += 1;
+            }
+        }
     }
 }
