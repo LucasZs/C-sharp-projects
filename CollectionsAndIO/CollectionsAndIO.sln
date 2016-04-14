@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SequentialCollections", "SequentialCollections\SequentialCollections.csproj", "{522FA855-C68E-4124-917C-F0B5AA27F911}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryCollections", "DictionaryCollections\DictionaryCollections.csproj", "{99DE3882-C57A-4EF7-85DC-8C45829894DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LookupCollections", "LookupCollections\LookupCollections.csproj", "{8BF98C69-E8CD-4B13-8171-9DA5BC3DAC70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericCollections", "GenericCollections\GenericCollections.csproj", "{50B817DA-6D01-479F-AEAF-908F473D8326}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeekAndArchive", "SeekAndArchive\SeekAndArchive.csproj", "{36599E17-B092-489D-B353-89E5FAFB7001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsolatedStorageDemo", "IsolatedStorageDemo\IsolatedStorageDemo.csproj", "{C438143C-521F-4CCF-9680-CF9517C322B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{522FA855-C68E-4124-917C-F0B5AA27F911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{522FA855-C68E-4124-917C-F0B5AA27F911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{522FA855-C68E-4124-917C-F0B5AA27F911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{522FA855-C68E-4124-917C-F0B5AA27F911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DE3882-C57A-4EF7-85DC-8C45829894DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DE3882-C57A-4EF7-85DC-8C45829894DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DE3882-C57A-4EF7-85DC-8C45829894DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DE3882-C57A-4EF7-85DC-8C45829894DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BF98C69-E8CD-4B13-8171-9DA5BC3DAC70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BF98C69-E8CD-4B13-8171-9DA5BC3DAC70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BF98C69-E8CD-4B13-8171-9DA5BC3DAC70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BF98C69-E8CD-4B13-8171-9DA5BC3DAC70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50B817DA-6D01-479F-AEAF-908F473D8326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B817DA-6D01-479F-AEAF-908F473D8326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B817DA-6D01-479F-AEAF-908F473D8326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B817DA-6D01-479F-AEAF-908F473D8326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36599E17-B092-489D-B353-89E5FAFB7001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36599E17-B092-489D-B353-89E5FAFB7001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36599E17-B092-489D-B353-89E5FAFB7001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36599E17-B092-489D-B353-89E5FAFB7001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C438143C-521F-4CCF-9680-CF9517C322B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C438143C-521F-4CCF-9680-CF9517C322B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C438143C-521F-4CCF-9680-CF9517C322B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C438143C-521F-4CCF-9680-CF9517C322B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
