@@ -13,3 +13,7 @@ The C# studies are continued with another few tasks to learn about the collectio
 DRIVER
 
 A simple app to show the drives, the directories, the files and the content of the textfiles on the user's computer.
+
+COLLECTIONS
+
+A few tasks solved according to the descriptions readable in the 'txt' file.
