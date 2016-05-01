@@ -10,12 +10,12 @@ using System.IO;
 namespace CreateClass
 {
     [Serializable]
-    class Person
+    class Person : IDeserializationCallback
     {
         private string name;
         public string Name { get { return name; } set { name = value; } }
 
-        private DateTime birthDate;
+        [NonSerialized] private DateTime birthDate;
         public DateTime BirthDate { get { return birthDate; } set { birthDate = value; } }
 
         public Person()
@@ -34,6 +34,11 @@ namespace CreateClass
         public override string ToString()
         {
             return (String.Format("name: {0}, birth date: {1}", this.name, this.birthDate));
+        }
+
+        public void OnDeserialization(object sender)
+        {
+            throw new NotImplementedException();
         }
     }
 
