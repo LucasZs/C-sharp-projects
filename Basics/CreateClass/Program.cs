@@ -107,6 +107,25 @@ namespace CreateClass
             fs.Close();
         }
 
+        private static Person Deserialize()
+        {
+            Person dsp = new Person();
+
+            // Open file to read the data from
+            FileStream fs = new FileStream("Person.Dat", FileMode.Open);
+
+            // Create a BinaryFormatter object to perform the deserialization
+            BinaryFormatter bf = new BinaryFormatter();
+
+            // Use the BinaryFormatter object to deserialize the data from the file
+            dsp = (Person)bf.Deserialize(fs);
+
+            // Close the file
+            fs.Close();
+
+            return dsp;
+        }
+
         static void Main(string[] args)
         {
             Employee Kovacs = new Employee("Géza", DateTime.Now, 1000, "léhűtő");
