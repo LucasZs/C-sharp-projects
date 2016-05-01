@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFileConverter", "TextFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateClass", "..\Basics\CreateClass\CreateClass.csproj", "{030F76C7-89ED-4C12-B5F3-EE812265274D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleThreadingDemo", "SimpleThreadingDemo\SimpleThreadingDemo.csproj", "{2A45B90B-E943-4FFB-B6E7-12E277A6012D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingleInstance", "SingleInstance\SingleInstance.csproj", "{99A9210F-13CF-4D1B-994D-0B02CC33F6B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{030F76C7-89ED-4C12-B5F3-EE812265274D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{030F76C7-89ED-4C12-B5F3-EE812265274D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{030F76C7-89ED-4C12-B5F3-EE812265274D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A45B90B-E943-4FFB-B6E7-12E277A6012D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A45B90B-E943-4FFB-B6E7-12E277A6012D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A45B90B-E943-4FFB-B6E7-12E277A6012D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A45B90B-E943-4FFB-B6E7-12E277A6012D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A9210F-13CF-4D1B-994D-0B02CC33F6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A9210F-13CF-4D1B-994D-0B02CC33F6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A9210F-13CF-4D1B-994D-0B02CC33F6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A9210F-13CF-4D1B-994D-0B02CC33F6B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
