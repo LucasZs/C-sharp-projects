@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Input validator", "Input va
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFileConverter", "TextFileConverter\TextFileConverter.csproj", "{B80EFCD8-AF4F-4201-AC08-F16D39BABF70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateClass", "..\Basics\CreateClass\CreateClass.csproj", "{030F76C7-89ED-4C12-B5F3-EE812265274D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B80EFCD8-AF4F-4201-AC08-F16D39BABF70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B80EFCD8-AF4F-4201-AC08-F16D39BABF70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B80EFCD8-AF4F-4201-AC08-F16D39BABF70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{030F76C7-89ED-4C12-B5F3-EE812265274D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{030F76C7-89ED-4C12-B5F3-EE812265274D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{030F76C7-89ED-4C12-B5F3-EE812265274D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{030F76C7-89ED-4C12-B5F3-EE812265274D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

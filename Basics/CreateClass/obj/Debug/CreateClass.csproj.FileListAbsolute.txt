@@ -9,3 +9,9 @@ C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\Basics\CreateC
 C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\Basics\CreateClass\obj\Debug\CreateClass.csprojResolveAssemblyReference.cache
 C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\Basics\CreateClass\obj\Debug\CreateClass.exe
 C:\Users\Zsori Lukacs Peter\Documents\Visual Studio 2015\Projects\Basics\CreateClass\obj\Debug\CreateClass.pdb
+C:\DEV\C#\Single projects\Basics\CreateClass\bin\Debug\CreateClass.exe.config
+C:\DEV\C#\Single projects\Basics\CreateClass\obj\Debug\CreateClass.exe
+C:\DEV\C#\Single projects\Basics\CreateClass\obj\Debug\CreateClass.pdb
+C:\DEV\C#\Single projects\Basics\CreateClass\bin\Debug\CreateClass.exe
+C:\DEV\C#\Single projects\Basics\CreateClass\bin\Debug\CreateClass.pdb
+C:\DEV\C#\Single projects\Basics\CreateClass\obj\Debug\CreateClass.csprojResolveAssemblyReference.cache

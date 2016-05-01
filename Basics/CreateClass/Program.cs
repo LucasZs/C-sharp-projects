@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace CreateClass
 {
@@ -90,6 +92,21 @@ namespace CreateClass
 
     class Program
     {
+        private static void Serialize(Person sp)
+        {
+            // Create file to save the data to
+            FileStream fs = new FileStream("Person.Dat", FileMode.Create);
+
+            // Create a BinaryFormatter object to perform the serialization
+            BinaryFormatter bf = new BinaryFormatter();
+
+            // Use the BinaryFormatter object to serialize the data to the file
+            bf.Serialize(fs, sp);
+
+            // Close the file
+            fs.Close();
+        }
+
         static void Main(string[] args)
         {
             Employee Kovacs = new Employee("Géza", DateTime.Now, 1000, "léhűtő");
