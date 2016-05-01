@@ -10,7 +10,7 @@ using System.IO;
 namespace CreateClass
 {
     [Serializable]
-    class Person : IDeserializationCallback
+    class Person : IDeserializationCallback, ISerializable
     {
         private string name;
         public string Name { get { return name; } set { name = value; } }
@@ -21,6 +21,15 @@ namespace CreateClass
         public Person()
         {
 
+        }
+
+        public Person(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Name", name);
+            info.AddValue("BD", BirthDate);
+
+            name = info.GetString("Name");
+            BirthDate = info.GetDateTime("BD");
         }
 
         public Person(string Name, DateTime birthDate)
@@ -37,6 +46,11 @@ namespace CreateClass
         }
 
         public void OnDeserialization(object sender)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             throw new NotImplementedException();
         }
