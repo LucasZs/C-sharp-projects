@@ -17,3 +17,8 @@ A simple app to show the drives, the directories, the files and the content of t
 COLLECTIONS
 
 A few tasks solved according to the descriptions readable in the 'txt' file.
+
+REGEX AND SERIALIZATION AND MULTITHREADING
+
+A few tasks - solved according to itemized descriptions and given code snipets.
+
