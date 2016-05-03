@@ -22,3 +22,10 @@ REGEX AND SERIALIZATION AND MULTITHREADING
 
 A few tasks - solved according to itemized descriptions and given code snipets.
 
+MATCHER
+
+This application can search in text (input by the user) according to given regular expressions.
+
+THREADPOOL_DEMO
+
+A little example-program to studying the threadpool.
