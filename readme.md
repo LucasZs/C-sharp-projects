@@ -29,3 +29,13 @@ This application can search in text (input by the user) according to given regul
 THREADPOOL_DEMO
 
 A little example-program to studying the threadpool.
+
+THREADPOOL_DEMO
+
+A little example-program to studying the threadpool.
+
+SIMPLE_THREADING_DEMO
+
+A little example-program to studying the multithreading.
+
+
