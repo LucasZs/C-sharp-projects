@@ -38,4 +38,8 @@ SIMPLE_THREADING_DEMO
 
 A little example-program to studying the multithreading.
 
+PERSONS SERIALIZER
+
+Task to practice serializing: form application to storing the data of 99 persons.
+
 
