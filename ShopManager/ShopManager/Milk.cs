@@ -28,40 +28,40 @@ namespace ShopManager
 
         // getters:
 
-        public int getCapacity()
+        public int GetCapacity()
         {
             return capacity;
         }
 
-        public string getCompany()
+        public string GetCompany()
         {
             return company;
         }
 
-        public DateTime getWarrant()
+        public DateTime GetWarrant()
         {
             return warrant;
         }
 
-        public double getDripping()
+        public double GetDripping()
         {
             return dripping;
         }
 
-        public long getPrice()
+        public long GetPrice()
         {
             return price;
         }
 
         // other methods:
-        public bool isGood()
+        public bool IsGood()
         {
             return warrant >= DateTime.Now;
         }
 
-        public string toString()
+        public string ToString()
         {
-            return "Produced by " + company + " Best before: " + warrant + " Dripping: " + dripping;
+            return "Produced by: " + company + " Best before: " + warrant + " Dripping: " + dripping;
         }
     }
 
@@ -73,10 +73,10 @@ namespace ShopManager
             Milk parmalat = new Milk(1500, "Lactalis Hungária Kft.", new DateTime(2016, 8, 18), 1.5, 259);
             Milk milli = new Milk(330, "FrieslandCampina Hungária ZRt.", new DateTime(2016, 9, 15), 3.5, 179);
 
-            Console.WriteLine("The warrant date of our Mizo milk is " + mizo.getWarrant());
-            Console.WriteLine("The company behind Parmalat milk is " + parmalat.getCompany());
-            Console.WriteLine("The capacity of our Milli milk is " + milli.getCapacity() + " litre.");
-            Console.WriteLine("Milli milk is " + (milli.isGood() ? "good" : "bad"));
+            Console.WriteLine("The warrant date of our Mizo milk is " + mizo.GetWarrant());
+            Console.WriteLine("The company behind Parmalat milk is " + parmalat.GetCompany());
+            Console.WriteLine("The capacity of our Milli milk is " + milli.GetCapacity() + " litre.");
+            Console.WriteLine("Milli milk is " + (milli.IsGood() ? "good" : "bad"));
             Console.ReadKey();
         }
     }
