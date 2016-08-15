@@ -42,4 +42,6 @@ PERSONS SERIALIZER
 
 Task to practice serializing: form application to storing the data of 99 persons.
 
+SHOP MANAGER
 
+Exercise for practice C#: building a shop manager application step by step, according to given UMLs and instructions, with unit tests.
