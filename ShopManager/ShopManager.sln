@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopManager", "ShopManager\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopManagerTests", "ShopManagerTests\ShopManagerTests.csproj", "{4C61EF55-6D2A-49A3-831E-4996A130A5B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTests", "NUnitTests\NUnitTests.csproj", "{9479DC8D-5C93-45EB-A095-B683359889B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4C61EF55-6D2A-49A3-831E-4996A130A5B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C61EF55-6D2A-49A3-831E-4996A130A5B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C61EF55-6D2A-49A3-831E-4996A130A5B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9479DC8D-5C93-45EB-A095-B683359889B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9479DC8D-5C93-45EB-A095-B683359889B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9479DC8D-5C93-45EB-A095-B683359889B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9479DC8D-5C93-45EB-A095-B683359889B5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

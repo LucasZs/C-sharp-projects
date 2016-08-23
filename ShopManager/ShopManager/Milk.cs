@@ -9,24 +9,29 @@ namespace ShopManager
     public class Milk
     {
         //variables:
+        long barcode;
         int capacity; //ml
         string company;
         DateTime warrant;
         double dripping;
-        long price; //HUF
 
         //constructor:
 
-        public Milk(int capacity, string company, DateTime warrant, double dripping, long price)
+        public Milk(long barcode, int capacity, string company, DateTime warrant, double dripping)
         {
-            this.capacity = capacity; // liter
+            this.barcode = barcode;
+            this.capacity = capacity; // mililiter
             this.company = company;
             this.warrant = warrant;
             this.dripping = dripping;
-            this.price = price; // Ft
         }
 
         // getters:
+
+        public long GetBarcode()
+        {
+            return barcode;
+        }
 
         public int GetCapacity()
         {
@@ -47,19 +52,14 @@ namespace ShopManager
         {
             return dripping;
         }
-
-        public long GetPrice()
-        {
-            return price;
-        }
-
+        
         // other methods:
         public bool IsGood()
         {
             return warrant >= DateTime.Now;
         }
 
-        public string ToString()
+        override public string ToString()
         {
             return "Produced by: " + company + " Best before: " + warrant + " Dripping: " + dripping;
         }
@@ -69,9 +69,9 @@ namespace ShopManager
     {
         static void Main(string[] args)
         {
-            Milk mizo = new Milk(1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8, 200);
-            Milk parmalat = new Milk(1500, "Lactalis Hungária Kft.", new DateTime(2016, 8, 18), 1.5, 259);
-            Milk milli = new Milk(330, "FrieslandCampina Hungária ZRt.", new DateTime(2016, 9, 15), 3.5, 179);
+            Milk mizo = new Milk(645746747, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8);
+            Milk parmalat = new Milk(56547777, 1500, "Lactalis Hungária Kft.", new DateTime(2016, 8, 18), 1.5);
+            Milk milli = new Milk(547487747447, 330, "FrieslandCampina Hungária ZRt.", new DateTime(2016, 9, 15), 3.5);
 
             Console.WriteLine("The warrant date of our Mizo milk is " + mizo.GetWarrant());
             Console.WriteLine("The company behind Parmalat milk is " + parmalat.GetCompany());

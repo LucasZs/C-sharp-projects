@@ -1,59 +1,57 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ShopManager;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using NUnit.Framework;
 
-namespace ShopManager.Tests
+namespace ShopManager.NUnitTests
 {
-    [TestClass()]
-    public class MilkTests
+    [TestFixture]
+    class MilkNTests
     {
-        [TestMethod()]
+        [Test]
         public void GetBarcodeTest()
         {
             Milk m = new Milk(678524, 1000, "Tej Rt.", new DateTime(2016, 9, 1), 2.8);
             Assert.AreEqual(678524, m.GetBarcode());
         }
 
-        [TestMethod()]
+        [Test]
         public void GetCapacityTest()
         {
             Milk m = new Milk(678524, 1000, "Tej Rt.", new DateTime(2016, 9, 1), 2.8);
             Assert.AreEqual(1000, m.GetCapacity());
         }
 
-        [TestMethod()]
+        [Test]
         public void GetCompanyTest()
         {
             Milk m = new Milk(678524, 1000, "Tej Rt.", new DateTime(2016, 9, 1), 2.8);
             Assert.AreEqual("Tej Rt.", m.GetCompany());
         }
 
-        [TestMethod()]
+        [Test]
         public void GetWarrantTest()
         {
             Milk m = new Milk(678524, 1000, "Tej Rt.", new DateTime(2016, 9, 1), 2.8);
             Assert.AreEqual((new DateTime(2016, 9, 1)), m.GetWarrant());
         }
 
-        [TestMethod()]
+        [Test]
         public void GetDrippingTest()
         {
             Milk m = new Milk(678524, 1000, "Tej Rt.", new DateTime(2016, 9, 1), 2.8);
             Assert.AreEqual(2.8, m.GetDripping());
         }
 
-        [TestMethod()]
+        [Test]
         public void IsGoodTest()
         {
             Milk m = new Milk(678524, 1000, "Tej Rt.", new DateTime(2016, 9, 1), 2.8);
             Assert.AreEqual(true, m.IsGood());
         }
 
-        [TestMethod()]
+        [Test]
         public void ToStringTest()
         {
             Milk m = new Milk(678524, 1000, "Tej Rt.", new DateTime(2016, 9, 1), 2.8);
