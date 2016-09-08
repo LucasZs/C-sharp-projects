@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 
 namespace ShopManager
 {
-    public class Milk
+    public abstract class Milk
     {
         //variables:
-        long barcode;
-        int capacity; //ml
-        string company;
-        DateTime warrant;
-        double dripping;
+        protected long barcode;
+        protected int capacity; //ml
+        protected string company;
+        protected DateTime warrant;
+        protected double dripping;
+
+        //constants:
+        public readonly int LITER = 1000;
+        public readonly int HALF_LITER = 500;
+        public readonly int CUP = 200;
+        public readonly double HALF_FAT = 1.5;
+        public readonly double FAT = 2.8;
 
         //constructor:
 
@@ -69,9 +76,9 @@ namespace ShopManager
     {
         static void Main(string[] args)
         {
-            Milk mizo = new Milk(645746747, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8);
-            Milk parmalat = new Milk(56547777, 1500, "Lactalis Hungária Kft.", new DateTime(2016, 8, 18), 1.5);
-            Milk milli = new Milk(547487747447, 330, "FrieslandCampina Hungária ZRt.", new DateTime(2016, 9, 15), 3.5);
+            LonglifeMilk mizo = new LonglifeMilk(645746747, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8);
+            LonglifeMilk parmalat = new LonglifeMilk(56547777, 1500, "Lactalis Hungária Kft.", new DateTime(2016, 8, 18), 1.5);
+            LonglifeMilk milli = new LonglifeMilk(547487747447, 330, "FrieslandCampina Hungária ZRt.", new DateTime(2016, 9, 15), 3.5);
 
             Console.WriteLine("The warrant date of our Mizo milk is " + mizo.GetWarrant());
             Console.WriteLine("The company behind Parmalat milk is " + parmalat.GetCompany());

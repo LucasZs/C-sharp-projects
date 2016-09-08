@@ -12,7 +12,7 @@ namespace ShopManager.NUnitTests
         [Test]
         public void GetNameTest()
         {
-            Shop.ShopEntry s1 = new Shop.ShopEntry((new Milk(890818, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8)), 1, 200);
+            Shop.ShopEntry s1 = new Shop.ShopEntry((new LonglifeMilk(890818, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8)), 1, 200);
             Dictionary<long, Shop.ShopEntry> milkBar = new Dictionary<long, Shop.ShopEntry>();
             milkBar.Add(890818, s1);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula", milkBar);
@@ -22,7 +22,7 @@ namespace ShopManager.NUnitTests
         [Test]
         public void GetAddressTest()
         {
-            Shop.ShopEntry s1 = new Shop.ShopEntry((new Milk(890818, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8)), 1, 200);
+            Shop.ShopEntry s1 = new Shop.ShopEntry((new LonglifeMilk(890818, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8)), 1, 200);
             Dictionary<long, Shop.ShopEntry> milkBar = new Dictionary<long, Shop.ShopEntry>();
             milkBar.Add(890818, s1);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula", milkBar);
@@ -32,7 +32,7 @@ namespace ShopManager.NUnitTests
         [Test]
         public void GetOwnerTest()
         {
-            Shop.ShopEntry s1 = new Shop.ShopEntry((new Milk(890818, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8)), 1, 200);
+            Shop.ShopEntry s1 = new Shop.ShopEntry((new LonglifeMilk(890818, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8)), 1, 200);
             Dictionary<long, Shop.ShopEntry> milkBar = new Dictionary<long, Shop.ShopEntry>();
             milkBar.Add(890818, s1);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula", milkBar);
@@ -42,7 +42,7 @@ namespace ShopManager.NUnitTests
         [Test]
         public void IsAnyMilkTest()
         {
-            Shop.ShopEntry s1 = new Shop.ShopEntry((new Milk(890818, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8)), 1, 200);
+            Shop.ShopEntry s1 = new Shop.ShopEntry((new LonglifeMilk(890818, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8)), 1, 200);
             Dictionary<long, Shop.ShopEntry> milkBar = new Dictionary<long, Shop.ShopEntry>();
             milkBar.Add(890818, s1);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula", milkBar);
@@ -53,7 +53,7 @@ namespace ShopManager.NUnitTests
         [Test]
         public void BuyMilkTest()
         {
-            Milk newMilk = new Milk(890818, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8);
+            LonglifeMilk newMilk = new LonglifeMilk(890818, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 8, 18), 2.8);
             Shop.ShopEntry s1 = new Shop.ShopEntry(newMilk, 1, 200);
             Dictionary<long, Shop.ShopEntry> milkBar = new Dictionary<long, Shop.ShopEntry>();
             milkBar.Add(newMilk.GetBarcode(), s1);
@@ -66,7 +66,7 @@ namespace ShopManager.NUnitTests
         {
             Dictionary<long, Shop.ShopEntry> milkBar = new Dictionary<long, Shop.ShopEntry>();
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula", milkBar);
-            Milk newMilk = new Milk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
+            LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             sh.AddMilk(newMilk);
             Assert.AreEqual(newMilk, milkBar[newMilk.GetBarcode()].GetM());
         }

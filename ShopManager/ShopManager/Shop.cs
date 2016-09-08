@@ -48,14 +48,14 @@ namespace ShopManager
             return milkBar.Count != 0;
         }
 
-        public Milk BuyMilk(long barcode)
+        public LonglifeMilk BuyMilk(long barcode)
         {
-            Milk removableMilk = milkBar[barcode].GetM();
+            LonglifeMilk removableMilk = milkBar[barcode].GetM();
             milkBar.Remove(barcode);
             return removableMilk;
         }
 
-        public void AddMilk(Milk m)
+        public void AddMilk(LonglifeMilk m)
         {
             ShopEntry s;
             try
@@ -72,22 +72,22 @@ namespace ShopManager
 
         public class ShopEntry
         {
-            Milk m;
+            LonglifeMilk m;
             int quantity, price;
 
-            public ShopEntry(Milk m, int quantity, int price)
+            public ShopEntry(LonglifeMilk m, int quantity, int price)
             {
                 this.m = m;
                 this.quantity = quantity;
                 this.price = price;
             }
 
-            public Milk GetM()
+            public LonglifeMilk GetM()
             {
                 return m;
             }
 
-            public void SetM(Milk m)
+            public void SetM(LonglifeMilk m)
             {
                 this.m = m;
             }
