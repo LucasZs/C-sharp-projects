@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace ShopManager
 {
-    public abstract class Milk
+    public abstract class Milk : Food
     {
         //variables:
-        protected long barcode;
         protected int capacity; //ml
-        protected string company;
-        protected DateTime warrant;
         protected double dripping;
 
         //constants:
@@ -24,20 +21,11 @@ namespace ShopManager
 
         //constructor:
 
-        public Milk(long barcode, int capacity, string company, DateTime warrant, double dripping)
+        public Milk(long barcode, int capacity, string company, DateTime warrant, double dripping) :
+            base(barcode, company, warrant)
         {
-            this.barcode = barcode;
-            this.capacity = capacity; // mililiter
-            this.company = company;
-            this.warrant = warrant;
+            this.capacity = capacity;
             this.dripping = dripping;
-        }
-
-        // getters:
-
-        public long GetBarcode()
-        {
-            return barcode;
         }
 
         public int GetCapacity()
@@ -45,27 +33,12 @@ namespace ShopManager
             return capacity;
         }
 
-        public string GetCompany()
-        {
-            return company;
-        }
-
-        public DateTime GetWarrant()
-        {
-            return warrant;
-        }
-
         public double GetDripping()
         {
             return dripping;
         }
         
-        // other methods:
-        public bool IsGood()
-        {
-            return warrant >= DateTime.Now;
-        }
-
+       
         override public string ToString()
         {
             return "Produced by: " + company + " Best before: " + warrant + " Dripping: " + dripping;
