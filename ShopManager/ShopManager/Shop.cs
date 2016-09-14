@@ -11,19 +11,19 @@ namespace ShopManager
     public class Shop
     {
         string name, address, owner;
-        Dictionary<long, ShopEntry> milkBar;
+        Dictionary<long, ShopEntry> foodBar;
 
         public Shop(string name, string address, string owner) : this(name, address, owner, new Dictionary<long, ShopEntry>())
         {
 
         }
 
-        public Shop(string name, string address, string owner, Dictionary<long, ShopEntry> milkBar)
+        public Shop(string name, string address, string owner, Dictionary<long, ShopEntry> foodBar)
         {
             this.name = name;
             this.address = address;
             this.owner = owner;
-            this.milkBar = milkBar;
+            this.foodBar = foodBar;
         }
         
         public string GetName()
@@ -42,57 +42,80 @@ namespace ShopManager
             return owner;
 
         }
+        
+        public bool IsAnyCertainFood(Type t)
+        {
+            foreach (KeyValuePair<long, ShopEntry> oneShopEntry in foodBar)
+            {
+                ShopEntry se = oneShopEntry.Value;
+                if (t.IsInstanceOfType(se.GetF()) && se.GetQuantity() > 0)
+                    return true;
+            }
+            return false;
+        }
 
         public bool IsAnyMilk()
         {
-            return milkBar.Count != 0;
+            return IsAnyCertainFood(typeof(Milk));
         }
 
-        public LonglifeMilk BuyMilk(long barcode)
-        {
-            LonglifeMilk removableMilk = milkBar[barcode].GetM();
-            milkBar.Remove(barcode);
-            return removableMilk;
-        }
-
-        public void AddMilk(LonglifeMilk m)
+        public void BuyFood(Food f, int quantity)
         {
             ShopEntry s;
+
+            s = foodBar[f.GetBarcode()];
+            if (s != null)
+            {
+                s.DecrementQuantity(quantity);
+            }
+        }
+
+        public Food RemoveFood(long barcode)
+        {
+            Food removableFood = foodBar[barcode].GetF();
+            foodBar.Remove(barcode);
+            return removableFood;
+        }
+
+        public void AddFood(Food f, int quantity, int price)
+        {
+            ShopEntry s;
+
             try
             {
-                s = milkBar[m.GetBarcode()];
-                s.IncrementQuantity(1);
+                s = foodBar[f.GetBarcode()];
+                s.IncrementQuantity(quantity);
             }
             catch (KeyNotFoundException)
             {
-                s = new ShopEntry(m, 1, 200);
-                milkBar.Add(m.GetBarcode(), s);
+                s = new ShopEntry(f, quantity, price);
+                foodBar.Add(f.GetBarcode(), s);
             }
         }
 
         public class ShopEntry
         {
-            LonglifeMilk m;
+            Food f;
             int quantity, price;
 
-            public ShopEntry(LonglifeMilk m, int quantity, int price)
+            public ShopEntry(Food f, int quantity, int price)
             {
-                this.m = m;
+                this.f = f;
                 this.quantity = quantity;
                 this.price = price;
             }
 
-            public LonglifeMilk GetM()
+            public Food GetF()
             {
-                return m;
+                return f;
             }
 
-            public void SetM(LonglifeMilk m)
+            public void SetF(Food f)
             {
-                this.m = m;
+                this.f = f;
             }
 
-            int GetQuantity()
+            public int GetQuantity()
             {
                 return quantity;
             }
