@@ -42,6 +42,11 @@ namespace ShopManager
             return owner;
 
         }
+
+        public Dictionary<long, ShopEntry> GetFoodBar()
+        {
+            return foodBar;
+        }
         
         public bool IsAnyCertainFood(Type t)
         {
@@ -70,11 +75,9 @@ namespace ShopManager
             }
         }
 
-        public Food RemoveFood(long barcode)
+        public void RemoveFood(long barcode)
         {
-            Food removableFood = foodBar[barcode].GetF();
             foodBar.Remove(barcode);
-            return removableFood;
         }
 
         public void AddFood(Food f, int quantity, int price)
