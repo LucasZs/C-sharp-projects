@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ShopManager.Exceptions;
 
 
 namespace ShopManager
@@ -64,38 +61,61 @@ namespace ShopManager
             return IsAnyCertainFood(typeof(Milk));
         }
 
-        public void BuyFood(Food f, int quantity)
+        public void BuyFood(long barcode, int quantity)
         {
-            ShopEntry s;
-
-            s = foodBar[f.GetBarcode()];
-            if (s != null)
+            if (!foodBar.ContainsKey(barcode))
             {
-                s.DecrementQuantity(quantity);
+                throw new NonexistentWareException("Product with this barcode does not exists!");
             }
+
+            ShopEntry s = (ShopEntry)foodBar[barcode];
+
+            if (s.GetQuantity() - quantity <= 0)
+            {
+                throw new TooMuchDecrementionException("The quantity of this product is not enough to buy!");
+            }
+            
+            s.DecrementQuantity(quantity);
         }
 
         public void RemoveFood(long barcode)
         {
-            foodBar.Remove(barcode);
+            if (foodBar.ContainsKey(barcode))
+            {
+                foodBar.Remove(barcode);
+            }
+            else
+            {
+                throw new NonexistentWareException("Product with this barcode doesn't exists!");
+            }
         }
 
-        public void AddFood(Food f, int quantity, int price)
+        public void AddFood(long barcode, int quantity)
         {
-            ShopEntry s;
-
-            try
+            if (!foodBar.ContainsKey(barcode))
             {
-                s = foodBar[f.GetBarcode()];
+                throw new NonexistentWareException("Product with this barcode doesn't exists!");
+            }
+            else {
+                ShopEntry s = foodBar[barcode];
                 s.IncrementQuantity(quantity);
             }
-            catch (KeyNotFoundException)
-            {
-                s = new ShopEntry(f, quantity, price);
-                foodBar.Add(f.GetBarcode(), s);
-            }
         }
 
+        public void AddNewFood(Food f, int price, int quantity)
+        {
+            ShopEntry s = new ShopEntry(f, quantity, price);
+
+            if (!foodBar.ContainsKey(f.GetBarcode()))
+                {
+                foodBar.Add(f.GetBarcode(), s);
+                }
+            else
+            {
+                throw new ArgumentException("The product with this specific barcode already exists!");
+            }
+        }
+        
         public class ShopEntry
         {
             Food f;

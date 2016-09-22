@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ShopManager.Tests
 {
     [TestClass()]
@@ -66,12 +67,23 @@ namespace ShopManager.Tests
         {
             LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
-            sh.AddFood(newMilk, 3, 200);
+            sh.AddNewFood(newMilk, 200, 3);
             Dictionary<long, Shop.ShopEntry> foodBar = sh.GetFoodBar();
             Shop.ShopEntry se = foodBar[newMilk.GetBarcode()];
             int quantity = se.GetQuantity();
-            sh.BuyFood(newMilk, 1);
+            sh.BuyFood(newMilk.GetBarcode(), 1);
             Assert.AreEqual(quantity - 1, se.GetQuantity());
+        }
+
+        [TestMethod()]
+        public void AddNewFoodTest()
+        {
+            LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
+            Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            sh.AddNewFood(newMilk, 200, 1);
+            Dictionary<long, Shop.ShopEntry> foodBar = sh.GetFoodBar();
+            Shop.ShopEntry se = foodBar[newMilk.GetBarcode()];
+            Assert.AreEqual(1, se.GetQuantity());
         }
 
         [TestMethod()]
@@ -79,11 +91,11 @@ namespace ShopManager.Tests
         {
             LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
-            sh.AddFood(newMilk, 1, 200);
+            sh.AddNewFood(newMilk, 200, 1);
             Dictionary<long, Shop.ShopEntry> foodBar = sh.GetFoodBar();
             Shop.ShopEntry se = foodBar[newMilk.GetBarcode()];
             int quantity = se.GetQuantity();
-            sh.AddFood(newMilk, 1, 200);
+            sh.AddFood(newMilk.GetBarcode(), 1);
             Assert.AreEqual(quantity + 1, se.GetQuantity());
         }
 
@@ -92,7 +104,7 @@ namespace ShopManager.Tests
         {
             LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
-            sh.AddFood(newMilk, 2, 200);
+            sh.AddNewFood(newMilk, 200, 1);
             sh.RemoveFood(820716);
             Dictionary<long, Shop.ShopEntry> foodBar = sh.GetFoodBar();
             Assert.AreEqual(false, foodBar.ContainsKey(newMilk.GetBarcode()));
