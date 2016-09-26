@@ -2,27 +2,13 @@
 
 namespace ShopManager
 {
-    public abstract class Food
+    public abstract class Food : Ware
     {
-        protected long barcode;
-        protected string company;
         protected DateTime warrant;
 
-        public Food(long barcode, string company, DateTime warrant)
+        public Food(long barcode, string company, DateTime warrant) : base(barcode, company)
         {
-            this.barcode = barcode;
-            this.company = company;
             this.warrant = warrant;
-        }
-
-        public long GetBarcode()
-        {
-            return barcode;
-        }
-
-        public string GetCompany()
-        {
-            return company;
         }
 
         public DateTime GetWarrant()

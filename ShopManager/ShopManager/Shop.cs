@@ -8,19 +8,19 @@ namespace ShopManager
     public class Shop
     {
         string name, address, owner;
-        Dictionary<long, ShopEntry> foodBar;
+        Dictionary<long, ShopEntry> wareBar;
 
         public Shop(string name, string address, string owner) : this(name, address, owner, new Dictionary<long, ShopEntry>())
         {
 
         }
 
-        public Shop(string name, string address, string owner, Dictionary<long, ShopEntry> foodBar)
+        public Shop(string name, string address, string owner, Dictionary<long, ShopEntry> wareBar)
         {
             this.name = name;
             this.address = address;
             this.owner = owner;
-            this.foodBar = foodBar;
+            this.wareBar = wareBar;
         }
         
         public string GetName()
@@ -40,17 +40,17 @@ namespace ShopManager
 
         }
 
-        public Dictionary<long, ShopEntry> GetFoodBar()
+        public Dictionary<long, ShopEntry> GetWareBar()
         {
-            return foodBar;
+            return wareBar;
         }
         
-        public bool IsAnyCertainFood(Type t)
+        public bool IsAnyCertainWare(Type t)
         {
-            foreach (KeyValuePair<long, ShopEntry> oneShopEntry in foodBar)
+            foreach (KeyValuePair<long, ShopEntry> oneShopEntry in wareBar)
             {
                 ShopEntry se = oneShopEntry.Value;
-                if (t.IsInstanceOfType(se.GetF()) && se.GetQuantity() > 0)
+                if (t.IsInstanceOfType(se.GetWare()) && se.GetQuantity() > 0)
                     return true;
             }
             return false;
@@ -58,17 +58,17 @@ namespace ShopManager
 
         public bool IsAnyMilk()
         {
-            return IsAnyCertainFood(typeof(Milk));
+            return IsAnyCertainWare(typeof(Milk));
         }
 
-        public void BuyFood(long barcode, int quantity)
+        public void BuyWare(long barcode, int quantity)
         {
-            if (!foodBar.ContainsKey(barcode))
+            if (!wareBar.ContainsKey(barcode))
             {
                 throw new NonexistentWareException("Product with this barcode does not exists!");
             }
 
-            ShopEntry s = (ShopEntry)foodBar[barcode];
+            ShopEntry s = (ShopEntry) wareBar[barcode];
 
             if (s.GetQuantity() - quantity <= 0)
             {
@@ -78,11 +78,11 @@ namespace ShopManager
             s.DecrementQuantity(quantity);
         }
 
-        public void RemoveFood(long barcode)
+        public void RemoveWare(long barcode)
         {
-            if (foodBar.ContainsKey(barcode))
+            if (wareBar.ContainsKey(barcode))
             {
-                foodBar.Remove(barcode);
+                wareBar.Remove(barcode);
             }
             else
             {
@@ -90,25 +90,25 @@ namespace ShopManager
             }
         }
 
-        public void AddFood(long barcode, int quantity)
+        public void AddWare(long barcode, int quantity)
         {
-            if (!foodBar.ContainsKey(barcode))
+            if (!wareBar.ContainsKey(barcode))
             {
                 throw new NonexistentWareException("Product with this barcode doesn't exists!");
             }
             else {
-                ShopEntry s = foodBar[barcode];
+                ShopEntry s = wareBar[barcode];
                 s.IncrementQuantity(quantity);
             }
         }
 
-        public void AddNewFood(Food f, int price, int quantity)
+        public void AddNewWare(Ware ware, int price, int quantity)
         {
-            ShopEntry s = new ShopEntry(f, quantity, price);
+            ShopEntry s = new ShopEntry(ware, quantity, price);
 
-            if (!foodBar.ContainsKey(f.GetBarcode()))
+            if (!wareBar.ContainsKey(ware.GetBarcode()))
                 {
-                foodBar.Add(f.GetBarcode(), s);
+                wareBar.Add(ware.GetBarcode(), s);
                 }
             else
             {
@@ -118,24 +118,24 @@ namespace ShopManager
         
         public class ShopEntry
         {
-            Food f;
+            Ware ware;
             int quantity, price;
 
-            public ShopEntry(Food f, int quantity, int price)
+            public ShopEntry(Ware ware, int quantity, int price)
             {
-                this.f = f;
+                this.ware = ware;
                 this.quantity = quantity;
                 this.price = price;
             }
 
-            public Food GetF()
+            public Ware GetWare()
             {
-                return f;
+                return ware;
             }
 
-            public void SetF(Food f)
+            public void SetWare(Ware ware)
             {
-                this.f = f;
+                this.ware = ware;
             }
 
             public int GetQuantity()
