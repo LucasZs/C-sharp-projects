@@ -9,11 +9,11 @@ namespace ShopManager
         protected double dripping;
 
         //constants:
-        public readonly int LITER = 1000;
-        public readonly int HALF_LITER = 500;
-        public readonly int CUP = 200;
-        public readonly double HALF_FAT = 1.5;
-        public readonly double FAT = 2.8;
+        public static readonly int LITER = 1000;
+        public static readonly int HALF_LITER = 500;
+        public static readonly int CUP = 200;
+        public static readonly double HALF_FAT = 1.5;
+        public static readonly double FAT = 2.8;
 
         //constructor:
 
@@ -33,8 +33,8 @@ namespace ShopManager
         {
             return dripping;
         }
-        
-       
+
+
         override public string ToString()
         {
             return "Produced by: " + company + " Best before: " + warrant + " Dripping: " + dripping;
