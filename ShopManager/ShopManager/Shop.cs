@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using ShopManager.Exceptions;
-
+using System.Collections;
 
 namespace ShopManager
 {
-    public class Shop
+    public class Shop : IShop
     {
         string name, address, owner;
         Dictionary<long, ShopEntry> wareBar;
@@ -115,7 +115,12 @@ namespace ShopManager
                 throw new ArgumentException("The product with this specific barcode already exists!");
             }
         }
-        
+
+        public IEnumerator GetWares()
+        {
+            return wareBar.Values.GetEnumerator();
+        }
+
         public class ShopEntry
         {
             Ware ware;
