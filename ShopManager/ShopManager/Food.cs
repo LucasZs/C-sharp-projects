@@ -23,7 +23,9 @@ namespace ShopManager
 
         override public string ToString()
         {
-            return "Produced by: " + company + " Best before: " + warrant;
+            return
+                base.ToString() + 
+                "\nBest before: " + warrant;
         }
     }
 }

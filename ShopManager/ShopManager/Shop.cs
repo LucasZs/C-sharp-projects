@@ -120,7 +120,7 @@ namespace ShopManager
         {
             return wareBar.Values.GetEnumerator();
         }
-
+        
         public class ShopEntry
         {
             Ware ware;
@@ -171,6 +171,14 @@ namespace ShopManager
             void SetPrice(int price)
             {
                 this.price = price;
+            }
+
+            public override string ToString()
+            {
+                return
+                    ware + 
+                    "\nPrice: " + price + 
+                    "\nQuantity: " + quantity;
             }
         }
     }

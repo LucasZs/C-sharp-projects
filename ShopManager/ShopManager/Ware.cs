@@ -26,5 +26,13 @@ namespace ShopManager
         {
             return company;
         }
+
+        public override string ToString()
+        {
+            return
+                "\n---------------------------" + 
+                "\nBarCode: " + barcode +
+                "\nCompany: " + company;
+        }
     }
 }

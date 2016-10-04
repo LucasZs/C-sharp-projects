@@ -52,8 +52,8 @@ namespace ShopManager.Tests
         public void ToStringTest()
         {
             HalflongLifeMilk m = new HalflongLifeMilk(678524, 1000, "Tej Rt.", new DateTime(2016, 9, 1), 2.8);
-            // Be cHalflongLifeMilkareful: using '.' or ',' in double/float depends on environmental variables:
-            Assert.AreEqual("Produced by: Tej Rt. Best before: 2016.09.01. 0:00:00 Dripping: 2,8", m.ToString());
+            // Be careful: using '.' or ',' in double/float depends on environmental variables:
+            Assert.AreEqual("\n---------------------------\nBarCode: 678524\nCompany: Tej Rt.\nBest before: 2016.09.01. 0:00:00\nCapacity: 1000\nDripping: 2,8", m.ToString());
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using ShopManager.Exceptions;
+using System.Collections;
 
 namespace ShopManager.NUnitTests
 {
@@ -158,6 +159,18 @@ namespace ShopManager.NUnitTests
             sh.AddNewWare(newMilk, 200, 1);
             Dictionary<long, Shop.ShopEntry> wareBar = sh.GetWareBar();
             Assert.Throws<NonexistentWareException>(() => sh.RemoveWare(821456607), "Product with this barcode does not exists!"); ;
+        }
+
+        [Test]
+        public void GetWaresTest()
+        {
+            LonglifeMilk milk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
+            Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            shop.AddNewWare(milk, 200, 1);
+            Dictionary<long, Shop.ShopEntry> wareBar = shop.GetWareBar();
+            Shop.ShopEntry se = wareBar[milk.GetBarcode()];
+            IEnumerator shopEnum = shop.GetWares();
+            Assert.AreEqual(se, shopEnum.MoveNext());
         }
     }
 }

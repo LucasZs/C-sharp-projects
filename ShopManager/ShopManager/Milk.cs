@@ -35,9 +35,12 @@ namespace ShopManager
         }
 
 
-        override public string ToString()
+        public override string ToString()
         {
-            return "Produced by: " + company + " Best before: " + warrant + " Dripping: " + dripping;
+            return
+                base.ToString() + 
+                "\nCapacity: " + capacity + 
+                "\nDripping: " + dripping;
         }
     }
 }
