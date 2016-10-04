@@ -118,7 +118,7 @@ namespace ShopManager
 
         public IEnumerator GetWares()
         {
-            return wareBar.Values.GetEnumerator();
+            return new WareEnumerator(wareBar.Values.GetEnumerator());
         }
         
         public class ShopEntry
@@ -179,6 +179,43 @@ namespace ShopManager
                     ware + 
                     "\nPrice: " + price + 
                     "\nQuantity: " + quantity;
+            }
+        }
+
+        internal class WareEnumerator : IEnumerator
+        {
+            IEnumerator enumerator;
+
+            internal WareEnumerator(IEnumerator enumerator)
+            {
+                this.enumerator = enumerator;
+            }
+
+            public bool MoveNext()
+            {
+                return enumerator.MoveNext();
+            }
+
+            public object Current
+            {
+                get
+                {
+                    try
+                    {
+                        ShopEntry shopEntry = (ShopEntry) enumerator.Current;
+                        Ware ware = shopEntry.GetWare();
+                        return ware;
+                    }
+                    catch (IndexOutOfRangeException)
+                    {
+                        throw new InvalidOperationException("The current position of enumerator is out of the collection!");
+                    }
+                }
+            }
+
+            public void Reset()
+            {
+                enumerator.Reset();
             }
         }
     }

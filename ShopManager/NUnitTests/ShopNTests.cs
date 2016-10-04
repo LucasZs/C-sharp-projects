@@ -172,5 +172,32 @@ namespace ShopManager.NUnitTests
             IEnumerator shopEnum = shop.GetWares();
             Assert.IsTrue(shopEnum.MoveNext());
         }
+
+        [Test]
+        public void MoveNextTest()
+        {
+            LonglifeMilk milk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
+            Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            shop.AddNewWare(milk, 200, 1);
+            Dictionary<long, Shop.ShopEntry> wareBar = shop.GetWareBar();
+            Shop.ShopEntry se = wareBar[milk.GetBarcode()];
+            IEnumerator shopEnum = shop.GetWares();
+            Assert.IsTrue(shopEnum.MoveNext());
+            Assert.IsFalse(shopEnum.MoveNext());
+        }
+
+        [Test]
+        public void ResetTest()
+        {
+            LonglifeMilk milk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
+            Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            shop.AddNewWare(milk, 200, 1);
+            Dictionary<long, Shop.ShopEntry> wareBar = shop.GetWareBar();
+            Shop.ShopEntry se = wareBar[milk.GetBarcode()];
+            IEnumerator shopEnum = shop.GetWares();
+            Assert.IsTrue(shopEnum.MoveNext());
+            shopEnum.Reset();
+            Assert.IsTrue(shopEnum.MoveNext());
+        }
     }
 }
