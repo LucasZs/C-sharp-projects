@@ -170,7 +170,7 @@ namespace ShopManager.NUnitTests
             Dictionary<long, Shop.ShopEntry> wareBar = shop.GetWareBar();
             Shop.ShopEntry se = wareBar[milk.GetBarcode()];
             IEnumerator shopEnum = shop.GetWares();
-            Assert.AreEqual(se, shopEnum.MoveNext());
+            Assert.IsTrue(shopEnum.MoveNext());
         }
     }
 }
