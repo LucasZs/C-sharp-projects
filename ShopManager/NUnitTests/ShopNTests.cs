@@ -64,6 +64,7 @@ namespace ShopManager.NUnitTests
         {
             LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            sh.Opens();
             sh.AddNewWare(newMilk, 200, 3);
             Dictionary<long, Shop.ShopEntry> foodBar = sh.GetWareBar();
             Shop.ShopEntry se = foodBar[newMilk.GetBarcode()];
@@ -73,10 +74,22 @@ namespace ShopManager.NUnitTests
         }
 
         [Test]
-        public void BuyWareTooMuchDecrementionExceptionTest()
+        public void BuyWareThrowsClosedExceptionTest()
         {
             LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            sh.AddNewWare(newMilk, 200, 3);
+            Dictionary<long, Shop.ShopEntry> foodBar = sh.GetWareBar();
+            Shop.ShopEntry se = foodBar[newMilk.GetBarcode()];
+            Assert.Throws<ClosedException>(() => sh.BuyWare(newMilk.GetBarcode(), 4), "The shop is closed.");
+        }
+
+        [Test]
+        public void BuyWareThrowsTooMuchDecrementionExceptionTest()
+        {
+            LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
+            Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            sh.Opens();
             sh.AddNewWare(newMilk, 200, 3);
             Dictionary<long, Shop.ShopEntry> foodBar = sh.GetWareBar();
             Shop.ShopEntry se = foodBar[newMilk.GetBarcode()];
@@ -91,6 +104,7 @@ namespace ShopManager.NUnitTests
             Dictionary<long, Shop.ShopEntry> wareBar = new Dictionary<long, Shop.ShopEntry>();
             wareBar.Add(newMilk.GetBarcode(), shopEntry);
             Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula", wareBar);
+            shop.Opens();
             Assert.Throws<NonexistentWareException>(() => shop.BuyWare(821456607, 3), "Product with this barcode does not exists!");
         }
 
@@ -166,6 +180,7 @@ namespace ShopManager.NUnitTests
         {
             LonglifeMilk milk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            shop.Opens();
             shop.AddNewWare(milk, 200, 1);
             Dictionary<long, Shop.ShopEntry> wareBar = shop.GetWareBar();
             Shop.ShopEntry se = wareBar[milk.GetBarcode()];
@@ -178,6 +193,7 @@ namespace ShopManager.NUnitTests
         {
             LonglifeMilk milk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            shop.Opens();
             shop.AddNewWare(milk, 200, 1);
             Dictionary<long, Shop.ShopEntry> wareBar = shop.GetWareBar();
             Shop.ShopEntry se = wareBar[milk.GetBarcode()];
@@ -191,6 +207,7 @@ namespace ShopManager.NUnitTests
         {
             LonglifeMilk milk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            shop.Opens();
             shop.AddNewWare(milk, 200, 1);
             Dictionary<long, Shop.ShopEntry> wareBar = shop.GetWareBar();
             Shop.ShopEntry se = wareBar[milk.GetBarcode()];
@@ -198,6 +215,33 @@ namespace ShopManager.NUnitTests
             Assert.IsTrue(shopEnum.MoveNext());
             shopEnum.Reset();
             Assert.IsTrue(shopEnum.MoveNext());
+        }
+
+        [Test]
+        public void ClosesTest()
+        {
+            LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
+            Shop.ShopEntry shopEntry = new Shop.ShopEntry(newMilk, 20, 200);
+            Dictionary<long, Shop.ShopEntry> wareBar = new Dictionary<long, Shop.ShopEntry>();
+            wareBar.Add(newMilk.GetBarcode(), shopEntry);
+            Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula", wareBar);
+            shop.Opens();
+            shop.Closes();
+            Assert.Throws<ClosedException>(() => shop.BuyWare(newMilk.GetBarcode(), 4), "The shop is closed.");
+        }
+
+        [Test]
+        public void OpensTest()
+        {
+            LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
+            Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            sh.Opens();
+            sh.AddNewWare(newMilk, 200, 3);
+            Dictionary<long, Shop.ShopEntry> foodBar = sh.GetWareBar();
+            Shop.ShopEntry se = foodBar[newMilk.GetBarcode()];
+            int quantity = se.GetQuantity();
+            sh.BuyWare(newMilk.GetBarcode(), 1);
+            Assert.AreEqual(quantity - 1, se.GetQuantity());
         }
     }
 }

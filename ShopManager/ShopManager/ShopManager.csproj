@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\ClosedException.cs" />
     <Compile Include="Exceptions\NonexistentWare.cs" />
     <Compile Include="Exceptions\ShopException.cs" />
     <Compile Include="Exceptions\TooMuchDecrementionException.cs" />

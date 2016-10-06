@@ -7,6 +7,7 @@ namespace ShopManager
 {
     public class Shop : IShop
     {
+        bool open = false;
         string name, address, owner;
         Dictionary<long, ShopEntry> wareBar;
 
@@ -40,6 +41,16 @@ namespace ShopManager
 
         }
 
+        public void Opens()
+        {
+            open = true;
+        }
+
+        public void Closes()
+        {
+            open = false;
+        }
+
         public Dictionary<long, ShopEntry> GetWareBar()
         {
             return wareBar;
@@ -63,6 +74,11 @@ namespace ShopManager
 
         public void BuyWare(long barcode, int quantity)
         {
+            if (!open)
+            {
+                throw new ClosedException("The shop is closed.");
+            }
+
             if (!wareBar.ContainsKey(barcode))
             {
                 throw new NonexistentWareException("Product with this barcode does not exists!");
@@ -118,6 +134,10 @@ namespace ShopManager
 
         public IEnumerator GetWares()
         {
+            if (!open)
+            {
+                throw new ClosedException("The shop is closed.");
+            }
             return new WareEnumerator(wareBar.Values.GetEnumerator());
         }
         

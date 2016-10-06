@@ -64,6 +64,7 @@ namespace ShopManager.Tests
         {
             LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            sh.Opens();
             sh.AddNewWare(newMilk, 200, 3);
             Dictionary<long, Shop.ShopEntry> foodBar = sh.GetWareBar();
             Shop.ShopEntry se = foodBar[newMilk.GetBarcode()];
@@ -77,6 +78,7 @@ namespace ShopManager.Tests
         {
             LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            sh.Opens();
             sh.AddNewWare(newMilk, 200, 1);
             Dictionary<long, Shop.ShopEntry> wareBar = sh.GetWareBar();
             Shop.ShopEntry se = wareBar[newMilk.GetBarcode()];
@@ -112,6 +114,7 @@ namespace ShopManager.Tests
         {
             LonglifeMilk milk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            shop.Opens();
             shop.AddNewWare(milk, 200, 1);
             Dictionary<long, Shop.ShopEntry> wareBar = shop.GetWareBar();
             Shop.ShopEntry se = wareBar[milk.GetBarcode()];
@@ -124,6 +127,7 @@ namespace ShopManager.Tests
         {
             LonglifeMilk milk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            shop.Opens();
             shop.AddNewWare(milk, 200, 1);
             Dictionary<long, Shop.ShopEntry> wareBar = shop.GetWareBar();
             Shop.ShopEntry se = wareBar[milk.GetBarcode()];
@@ -137,6 +141,7 @@ namespace ShopManager.Tests
         {
             LonglifeMilk milk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
             Shop shop = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            shop.Opens();
             shop.AddNewWare(milk, 200, 1);
             Dictionary<long, Shop.ShopEntry> wareBar = shop.GetWareBar();
             Shop.ShopEntry se = wareBar[milk.GetBarcode()];
@@ -144,6 +149,20 @@ namespace ShopManager.Tests
             Assert.IsTrue(shopEnum.MoveNext());
             shopEnum.Reset();
             Assert.IsTrue(shopEnum.MoveNext());
+        }
+
+        [TestMethod()]
+        public void OpensTest()
+        {
+            LonglifeMilk newMilk = new LonglifeMilk(820716, 1000, "Sole-Mizo ZRt.", new DateTime(2016, 9, 18), 2.8);
+            Shop sh = new Shop("Little Shop of Horrors", "Nowhere City, 6666, 10, Downing Str.", "Dr. Acula");
+            sh.Opens();
+            sh.AddNewWare(newMilk, 200, 3);
+            Dictionary<long, Shop.ShopEntry> foodBar = sh.GetWareBar();
+            Shop.ShopEntry se = foodBar[newMilk.GetBarcode()];
+            int quantity = se.GetQuantity();
+            sh.BuyWare(newMilk.GetBarcode(), 1);
+            Assert.AreEqual(quantity - 1, se.GetQuantity());
         }
     }
 }

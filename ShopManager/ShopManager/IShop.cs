@@ -2,11 +2,12 @@
 
 namespace ShopManager
 {
-    interface IShop
+    public interface IShop
     {
         IEnumerator GetWares();
         string GetName();
         string GetAddress();
         string GetOwner();
+        void Closes();
     }
 }
